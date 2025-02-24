@@ -51,15 +51,15 @@ const StudentForm = () => {
 
         <div className="form-group">
           <label>Phone Number</label>
-          <input 
-            type="text" 
-            {...register("phoneNumber", { 
-              required: "Phone number is required", 
-              pattern: { 
-                value: /^[0-9]{10}$/, 
-                message: "Phone number must be exactly 10 digits" 
-              } 
-            })} 
+          <input
+            type="text"
+            {...register("phoneNumber", {
+              required: "Phone number is required",
+              pattern: {
+                value: /^[0-9]{10}$/,
+                message: "Phone number must be exactly 10 digits"
+              }
+            })}
           />
           {errors.phoneNumber && <p className="error">{errors.phoneNumber.message}</p>}
         </div>
@@ -67,16 +67,18 @@ const StudentForm = () => {
         <div className="form-group">
           <label>Password</label>
           <div className="password-container">
-            <input 
-              type={showPassword ? "text" : "password"} 
-              {...register("password", { required: "Password is required" })} 
+            <input
+              type={showPassword ? "text" : "password"}
+              {...register("password", { required: "Password is required" })}
             />
-            <input 
-              type="checkbox" 
-              id="showPassword" 
-              onChange={() => setShowPassword(!showPassword)}
-            />
-            <label htmlFor="showPassword" className="showPassword">Show Password</label>
+            <div className="show-password-container">
+
+              <input
+                type="checkbox"
+                id="showPassword"
+                onChange={() => setShowPassword(!showPassword)}
+              />
+              <label htmlFor="showPassword" className="show-password">Show Password</label></div>
           </div>
           {errors.password && <p className="error">{errors.password.message}</p>}
         </div>
